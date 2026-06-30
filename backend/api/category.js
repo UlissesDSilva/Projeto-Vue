@@ -45,7 +45,6 @@ module.exports = app => {
       notExistsOrError(articles, 'Categoria possue artigos')
 
       const rowsDel = await app.db('categories').where({id: req.params.id}).del()
-      console.log(req.params.id)
       notExistsOrError(rowsDel, 'Categoria não foi encontrada')
 
       res.status(204).send()

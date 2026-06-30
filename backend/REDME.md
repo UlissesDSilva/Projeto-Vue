@@ -10,3 +10,17 @@ Migration - comandos
 
 ### Consign
 -- Ajuda definir as dependencias dentro a aplicação
+
+
+### Comandos
+Postgres:  
+  - psql -U postgres
+  - \q
+  - \l
+  - \c nome_banco
+  - \dt: Lista tabelas do banco atual
+  - \d: Exibe detalhes de uma tabela
+
+
+### Passport
+Usado para o controle de autenticação

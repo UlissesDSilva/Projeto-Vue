@@ -63,5 +63,23 @@ module.exports = app => {
       .catch(err => res.status(500).send(err))
   }
 
-  return { save, getAll, getById }
+  const remove = async (req, res) => {
+    try {
+      existsOrError(req.params.id, "Código do usuário não encontrado")
+
+      const rowsDel = await app.db('users').where({id: req.params.id}).del()
+
+      try {
+        existsOrError(rowsDel, "Usuário não encontrado")
+      } catch (msg) {
+        return res.status(400).send(msg)
+      }
+
+      res.status(204).send()
+    } catch (msg) {
+      res.status(500).send(msg)
+    }
+  }
+
+  return { save, getAll, getById, remove }
 }
